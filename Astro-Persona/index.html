@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroPersona | Discover Your Cosmic Identity</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="lang-selector">
+        <button onclick="changeLang('fa')">🇮🇷 فارسی</button>
+        <button onclick="changeLang('en')">🇬🇧 English</button>
+        <button onclick="changeLang('ar')">🇸🇦 العربية</button>
+        <button onclick="changeLang('zh')">🇨🇳 中文</button>
+        <button onclick="changeLang('ru')">🇷🇺 Русский</button>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>🌌 AstroPersona</h1>
+            <p id="i18n-subtitle">Discover Your Cosmic Identity</p>
+        </header>
+
+        <div class="calendar-toggle">
+            <button class="active" id="btn-shamsi" onclick="setCalendar('shamsi')">شمسی</button>
+            <button id="btn-miladi" onclick="setCalendar('miladi')">میلادی</button>
+            <button id="btn-ghamari" onclick="setCalendar('ghamari')">قمری</button>
+        </div>
+
+        <div class="input-group">
+            <label id="i18n-label-date">تاریخ تولد</label>
+            <div id="date-inputs-shamsi" class="date-inputs">
+                <input type="number" id="shamsi-year" placeholder="سال" min="1300" max="1450">
+                <input type="number" id="shamsi-month" placeholder="ماه" min="1" max="12">
+                <input type="number" id="shamsi-day" placeholder="روز" min="1" max="31">
+            </div>
+            <div id="date-inputs-miladi" class="date-inputs" style="display:none;">
+                <input type="date" id="miladi-date">
+            </div>
+            <div id="date-inputs-ghamari" class="date-inputs" style="display:none;">
+                <input type="number" id="ghamari-year" placeholder="سال قمری" min="1300" max="1500">
+                <input type="number" id="ghamari-month" placeholder="ماه" min="1" max="12">
+                <input type="number" id="ghamari-day" placeholder="روز" min="1" max="30">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label id="i18n-label-time">ساعت تولد (تقریبی)</label>
+            <input type="time" id="birthTime" value="12:00">
+        </div>
+        
+        <button class="main-btn" onclick="calculateAstro()" id="i18n-btn-calc">کشف شخصیت من ✨</button>
+
+        <div id="resultBox" class="result-box">
+            <h2 id="i18n-res-title">🔭 موقعیت کیهانی شما</h2>
+            
+            <div class="data-row">
+                <span class="data-label" id="i18n-res-zodiac">صورت فلکی:</span>
+                <span class="data-value" id="zodiacResult"></span>
+            </div>
+            <div class="data-row">
+                <span class="data-label" id="i18n-res-moon">فاز ماه:</span>
+                <span class="data-value" id="moonResult"></span>
+            </div>
+            <div class="data-row">
+                <span class="data-label" id="i18n-res-julian">ژولیَن دیت:</span>
+                <span class="data-value" id="julianResult"></span>
+            </div>
+            
+            <div class="personality-text" id="personalityText"></div>
+            
+            <div class="share-section">
+                <p id="i18n-share-text">نتیجه‌ت رو با دوستات به اشتراک بذار!</p>
+                <button class="share-btn" onclick="shareResult()" id="i18n-btn-share">📤 اشتراک‌گذاری</button>
+                <button class="copy-btn" onclick="copyLink()" id="i18n-btn-copy">🔗 کپی لینک</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- فایل کتابخانه اصلی -->
+    <script src="ahm-space.js"></script>
+    <!-- فایل دیکشنری -->
+    <script src="dictionary.js"></script>
+    <!-- منطق برنامه -->
+    <script src="app.js"></script>
+</body>
+</html>

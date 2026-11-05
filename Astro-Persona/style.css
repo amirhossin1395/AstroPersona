@@ -1,0 +1,90 @@
+:root {
+    --bg: #050510; --card: #1e1e2f; --text: #f1f5f9;
+    --accent: #8b5cf6; --accent2: #06b6d4;
+    --border: rgba(139, 92, 246, 0.3);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif; }
+body {
+    background: var(--bg); color: var(--text); min-height: 100vh;
+    display: flex; align-items: center; justify-content: center; padding: 20px;
+    background-image: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 60%);
+}
+
+.lang-selector { position: absolute; top: 20px; right: 20px; display: flex; gap: 5px; }
+.lang-selector button {
+    background: var(--card); border: 1px solid var(--border); color: var(--text);
+    padding: 5px 10px; border-radius: 8px; cursor: pointer; font-size: 0.8rem; transition: 0.3s;
+}
+.lang-selector button:hover { background: var(--accent); }
+
+.container {
+    background: var(--card); padding: 40px; border-radius: 24px;
+    border: 1px solid var(--border); width: 100%; max-width: 600px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); text-align: center; position: relative;
+}
+
+header h1 { font-size: 2.2rem; color: var(--accent2); margin-bottom: 10px; }
+header p { color: #94a3b8; margin-bottom: 30px; }
+
+.calendar-toggle {
+    display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;
+    background: #0f0f1a; padding: 5px; border-radius: 12px;
+}
+.calendar-toggle button {
+    flex: 1; padding: 10px; border: none; border-radius: 8px; background: transparent;
+    color: #94a3b8; font-weight: bold; cursor: pointer; transition: 0.3s;
+}
+.calendar-toggle button.active { background: var(--accent); color: white; }
+
+.input-group { margin-bottom: 20px; text-align: right; }
+.input-group label { display: block; margin-bottom: 8px; color: var(--text); font-weight: bold; }
+
+.date-inputs { display: flex; gap: 10px; }
+.date-inputs input {
+    width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--border);
+    background: #0f0f1a; color: white; font-family: inherit; font-size: 1rem; text-align: center;
+}
+.date-inputs input:focus { outline: none; border-color: var(--accent2); }
+
+.main-btn {
+    width: 100%; padding: 15px; border: none; border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: white; font-size: 1.1rem; font-weight: bold; cursor: pointer;
+    transition: all 0.3s; margin-top: 10px;
+}
+.main-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4); }
+
+.result-box {
+    display: none; margin-top: 30px; padding: 25px;
+    background: rgba(139, 92, 246, 0.1); border: 1px solid var(--accent);
+    border-radius: 16px; animation: fadeIn 0.8s ease;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.result-box h2 { color: var(--accent2); font-size: 1.5rem; margin-bottom: 20px; }
+.data-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed var(--border); }
+.data-row:last-child { border-bottom: none; }
+.data-label { color: #94a3b8; font-weight: bold; }
+.data-value { color: white; font-weight: bold; }
+
+.personality-text {
+    margin-top: 20px; padding: 15px; background: #0f0f1a;
+    border-radius: 12px; line-height: 1.8; color: #cbd5e1; font-size: 1.05rem; text-align: right;
+}
+
+.share-section { margin-top: 25px; }
+.share-section p { color: #94a3b8; margin-bottom: 10px; }
+.share-btn, .copy-btn {
+    padding: 12px 20px; border: none; border-radius: 10px; color: white;
+    font-weight: bold; cursor: pointer; transition: 0.3s; margin: 5px;
+}
+.share-btn { background: #10b981; }
+.share-btn:hover { background: #059669; }
+.copy-btn { background: #3b82f6; }
+.copy-btn:hover { background: #2563eb; }
+
+@media (max-width: 500px) {
+    .date-inputs { flex-direction: column; }
+    .lang-selector { position: static; justify-content: center; margin-bottom: 20px; }
+    .container { padding: 20px; }
+}
